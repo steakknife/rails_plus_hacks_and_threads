@@ -1,7 +1,7 @@
 # Be sure to restart your server when you modify this file.
 
 if defined? Redis::Store
-  Deployer::Application.config.session_store :redis_store
+  MyApp::Application.config.session_store :redis_store
 else
   MyApp::Application.config.session_store :cookie_store, key: '_MyApp_session'
 end

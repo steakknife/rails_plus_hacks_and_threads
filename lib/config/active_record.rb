@@ -3,6 +3,7 @@ module Platform
     def connect(pool_size = nil, reap_time = nil)
       return unless defined? ActiveRecord::Base
       config = Rails.application.config.database_configuration[Rails.env]
+      config['dead_connection_timeout'] = ENV['AR_DB_DEAD_CONN_TIMEOUT'] || 2 # seconds
       config['reaping_frequency'] = reap_time || ENV['AR_DB_REAP_FREQ'] || 10  # seconds
       config['pool']              = pool_size || ENV['AR_DB_POOL']      || 5
       ActiveRecord::Base.establish_connection(config)

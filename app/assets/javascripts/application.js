@@ -16,4 +16,6 @@
 //
 // ... your other scripts here ...
 //
+// Uncomment for ZURB Foundation
+// $(function(){ $(document).foundation(); });
 //= require turbolinks

@@ -5,7 +5,7 @@ unless $i18n_configured ||= false
   #I18n.enforce_available_locales = false
   I18n.enforce_available_locales = true
   # https://stackoverflow.com/questions/13369996/locale-fallback-from-country-to-language-without-having-to-define-each-individua
-  I18n.backend = I18n::Backend::Chain.new(I18n::Backend::Redis.new, I18n.backend) if Rails.env.production?
+  I18n.backend = I18n::Backend::Chain.new(I18n::Backend::Redis.new, I18n.backend) if Rails.env.production? && defined? I18n::Backend::Redis
   I18n.backend.class.send(:include, I18n::Backend::Fallbacks)
   require 'i18n/backend/cache'
   I18n.backend.class.send(:include, I18n::Backend::Cache)

@@ -21,6 +21,12 @@ module MyApp
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    def redis_url
+      ENV['REDISTOGO_URL'] ||
+      ENV['REDISCLOUD_URL'] ||
+      ENV['REDIS_URL'] ||
+      'redis://localhost:6379/'
+    end
 
     if defined? ::Redis::Store
       config.cache_store = :redis_store, "#{redis_url}1/cache_store", { expires_in: ::Rails.env.production? ? 90.minutes : 15.seconds }

@@ -7,7 +7,10 @@ if defined? Sidekiq
   # module Sidekiq::RateLimiter
   #  DEFAULT_LIMIT_NAME = 'whatever'
   # end
-  require 'sidekiq-rate-limiter/server'
+  begin
+    require 'sidekiq-rate-limiter/server'
+  rescue LoadError
+  end
   ### sidekiq-rate-limiter
   #
   # redis_conn = proc { Redis.new } # do anything you want here

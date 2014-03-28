@@ -78,7 +78,7 @@ end
 gem 'figaro', github: 'laserlemon/figaro' # set env vars in config/application.yml
 gem 'clockwork', require: nil # DSL for cron-like jobs
 gem 'sidekiq' # background jobs, requires redis
-# gem 'sidekiq-rate-limiter'
+gem 'sidekiq-rate-limiter'
 gem 'redis'
 gem 'redis-namespace'
 gem 'redis-rails'

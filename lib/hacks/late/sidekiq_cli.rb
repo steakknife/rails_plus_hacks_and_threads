@@ -7,26 +7,21 @@ module Sidekiq
       @self_write.puts('USR1') if @self_write # simulate USR1 signal
     end
 
-    def parse(args=[])
-      @code = nil
-      setup_options(args)
-      initialize_logger
-      validate!
-      load_celluloid
-    end
-
     def run_in_thread
       @self_read, @self_write = IO.pipe
 
       redis {}
       logger.info "Running sidekiq in #{RUBY_DESCRIPTION} #{Sidekiq::LICENSE}"
 
-#      send(:fire_event, :startup) # new api
+      send(:fire_event, :startup) if respond_to? :fire_event
 
       require 'sidekiq/launcher'
       @launcher = Sidekiq::Launcher.new(options)
-      #launcher.start_heartbeat(options[:tag] ? "#{options[:tag]} " : '') # new api
-      launcher.procline(options[:tag] ? "#{options[:tag]} " : '') # old api
+      if launcher.respond_to? :procline
+        launcher.procline(options[:tag] ? "#{options[:tag]} " : '')
+      else
+        options[:tag] ||= default_tag
+      end
       begin
         if options[:profile]
           require 'ruby-prof'
@@ -41,7 +36,7 @@ module Sidekiq
       rescue Interrupt
         logger.info 'Shutting down'
         launcher.stop
-#        send(:fire_event, :shutdown) # new api
+        send(:fire_event, :shutdown) if respond_to? :fire_event 
         # Explicitly exit so busy Processor threads can't block
         # process shutdown.
         Thread.exit
