@@ -1,0 +1,16 @@
+#!/bin/sh
+case "$1" in
+update)
+  rm -f .bundle/config
+  ;;
+upgrade)
+  rm -rf .bundle/config Gemfile.lock
+  ;;
+clean)
+  rm -rf vendor/cache
+  ;;
+purge)
+  rm -rf vendor/bundle vendor/cache
+  ;;
+esac
+bundle package --all && bundle --local --deployment --full-index
