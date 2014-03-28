@@ -1,6 +1,6 @@
 # README
 
-Example app that runs all kinds of shit in threads, in a single-process.
+Example app that runs all kinds of shit in threads.
 
 
 ## Requirements
@@ -62,7 +62,7 @@ MIT
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
 
-## 100% legitimately homeless tip-cup begging™  
+## 100% legitimately homeless tip-begging cup™  
 
 Please support open source
 
