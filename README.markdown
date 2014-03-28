@@ -68,5 +68,7 @@ Please support open source
 
  BTC: 19rFYN6yNpDaNBpAWKHzmeKAt7tiDPgdiP
  ![19rFYN6yNpDaNBpAWKHzmeKAt7tiDPgdiP](https://chart.googleapis.com/chart?cht=qr&chl=bitcoin%3A19rFYN6yNpDaNBpAWKHzmeKAt7tiDPgdiP&choe=UTF-8&chs=300x300)
+ 
+ Coins can be purchased through [CoinMama](https://www.coinmama.com/)
 
 ### *rattle-rattle*
