@@ -60,7 +60,7 @@ Per view stylesheets and javascripts are not included in every view.
 
 Instead, per-view assets are loaded after corresponding application.js and application.css
 
-This is more efficient to first page load since assets only the minimal assets are loaded.
+This is more efficient to first page load as only the minimal assets are loaded.
 
 ## Easy setup
 
