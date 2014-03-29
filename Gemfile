@@ -25,7 +25,7 @@ gem 'seedbed' # modular seeds.rb
 # gem 'sequential' # Scoped, thread safe sequences for ActiveRecord models
 
 # controller plugins
-gem 'secure_headers'
+gem 'secure_headers' # https://github.com/twitter/secureheaders
 gem 'inherited_resources'
 
 # view plugins
