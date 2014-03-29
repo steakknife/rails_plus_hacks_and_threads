@@ -2,6 +2,21 @@
 
 Example app that runs all kinds of shit in threads.
 
+## How it works
+
+Everything in `lib/threads/*.rb` gets spawned in a `Thread.new` (and supervised!)
+
+Sidekiq, since it's popular, is also included.
+
+Further only one instance of clockwork is spun up, no matter how many rails app instances are launched (SingletonProcess is a really bad ZooKeeper).
+
+
+## Easy setup
+
+    git clone https://github.com/steakknife/rails41rc_plus_hacks_and_threads
+    cd rails41rc_plus_hacks_and_threads
+    bundle exec rake db:setup
+    foreman start
 
 ## Requirements
 
@@ -11,6 +26,8 @@ Example app that runs all kinds of shit in threads.
 - bundler
 
 ## Configuration
+
+Can be set externally (such as heroku) or locally in config/application.yml
 
 ### Standard
 
