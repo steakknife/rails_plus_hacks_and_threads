@@ -8,7 +8,7 @@ Everything in `lib/threads/*.rb` gets spawned in a `Thread.new` (and supervised!
 
 Sidekiq, since it's popular, is also included.
 
-Further only one instance of clockwork is spun up, no matter how many rails app instances are launched (SingletonProcess is a really bad ZooKeeper).
+Clockwork, for timed jobs, is included as well.  Further only one instance of clockwork is spun up, no matter how many rails app instances are launched (using SingletonProcess is a really bad ZooKeeper).
 
 
 ## Easy setup
