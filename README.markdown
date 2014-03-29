@@ -123,6 +123,16 @@ Can be set externally (such as heroku) or locally in config/application.yml
 
 MIT
 
+## Security
+
+### Verify integrity of signed commits
+
+    git clone https://github.com/steakknife/rails41rc_plus_hacks_and_threads
+    cd rails41rc_plus_hacks_and_threads
+    gpg --recv-keys 0x14CAC196A122026C
+    git log --show-signature
+
+
 ### How this was created
 
     rails new MyApp --database=postgresql --skip-test-unit
