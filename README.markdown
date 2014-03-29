@@ -10,6 +10,13 @@ Sidekiq, since it's popular, is also included.
 
 Clockwork, for timed jobs, is included as well.  Further only one instance of clockwork is spun up, no matter how many rails app instances are launched (using SingletonProcess is a really bad ZooKeeper).
 
+## What's different
+
+Per view stylesheets and javascripts are not included in every view.
+
+Instead, per-view assets are loaded after corresponding application.js and application.css
+
+This is more efficient to first page load since assets only the minimal assets are loaded.
 
 ## Easy setup
 
