@@ -12,7 +12,10 @@
 //
 //= require jquery
 //= require jquery.turbolinks
-//= require jquery_ujs
+//= require jquery.cookie
+//= require jquery.ui.all
+//= require jquery_ujs 
+//= require modernizr
 //
 // ... your other scripts here ...
 //

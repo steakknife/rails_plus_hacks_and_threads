@@ -1,0 +1,9 @@
+MetricFu::Configuration.run do |config|
+  config.configure_metric(:rcov) do |rcov|
+    cov_file = MetricFu.run_path.join('coverage/rcov/rcov.txt')
+    system 'bundle exec rake spec' unless File.exist? cov_file
+    rcov.coverage_file = cov_file
+    rcov.enable
+    rcov.activate
+  end
+end

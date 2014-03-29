@@ -2,13 +2,57 @@
 
 Example app that runs all kinds of shit in threads.
 
+## What's preconfigured
+
+- Rails 4.1rc (4.0.x should work too)
+- [HAML](https://github.com/indirect/haml-rails)
+- [SASS](https://github.com/rails/sass-rails)
+- [jQuery](https://github.com/rails/jquery-rails) with [jQuery.turbolinks](https://github.com/kossnocorp/jquery.turbolinks)
+- [jQuery UI](https://github.com/joliss/jquery-ui-rails)
+- [Modernizr](https://github.com/russfrisch/modernizr-rails)
+- [pg](https://bitbucket.org/ged/ruby-pg/wiki/Home)
+- [jQuery Cookies](https://github.com/RyanScottLewis/jquery-cookie-rails)
+- [CoffeeScript](https://github.com/rails/coffee-rails)
+- [rails-assets.org](https://rails-assets.org) for other assets
+- [Sidekiq](http://sidekiq.org/)
+- [Clockwork](https://github.com/tomykaira/clockwork)
+- Testing
+  - [RSpec](http://rspec.info/) Please read [betterspecs](http://betterspecs.org/)
+  - [FactoryGirl](https://github.com/thoughtbot/factory_girl)
+  - [RR](https://github.com/btakita/rr)
+  - [Timecop](https://github.com/travisjeffery/timecop)
+  - [should_not](https://github.com/should-not/should_not)
+  - [recipient_interceptor](https://github.com/croaky/recipient_interceptor)
+- Code Coverage
+  - [metric_fu](https://github.com/metricfu/metric_fu/)
+    - [cane](http://github.com/square/cane)
+    - [churn](http://github.com/danmayer/churn)
+    - [flog](https://github.com/seattlerb/flog)
+    - [flay](https://github.com/seattlerb/flay)
+    - [reek](https://github.com/troessner/reek)
+    - [roodi](https://github.com/roodi/roodi)
+    - [saikuro](https://github.com/metricfu/Saikuro)
+    - [code_metrics](https://github.com/bf4/code_metrics)
+    - [simplecov](https://github.com/colszowka/simplecov/)
+    - [rails_best_practices](https://github.com/railsbp/rails_best_practices)
+
+## Also helpful to install
+
+- [brakeman](http://brakemanscanner.org/) - rails security scanner
+
 ## How it works
 
 Everything in `lib/threads/*.rb` gets spawned in a `Thread.new` (and supervised!)
 
-Sidekiq, since it's popular, is also included.
+Sidekiq, since it's popular, is also included.  Sidekiq workers live at `lib/workers/*.rb`
 
-Clockwork, for timed jobs, is included as well.  Further only one instance of clockwork is spun up, no matter how many rails app instances are launched (using SingletonProcess is a really bad ZooKeeper).
+Clockwork, for timed jobs, is included as well `lib/clocks/*.rb`.  Further only one instance of clockwork is spun up, no matter how many rails app instances are launched (using SingletonProcess is a really bad ZooKeeper).
+
+
+`lib/hacks/early/**/*.rb` are loaded early by config/boot.rb unless env `HACKS=n`
+
+`lib/hacks/late/**/.rb` are loaded later by config/environment.rb unless env `HACKS=n`
+
 
 ## What's different
 

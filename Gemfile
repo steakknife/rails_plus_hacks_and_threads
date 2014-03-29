@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org' # visit https://rails-assets.org/
 
 ruby '2.1.1'
 
@@ -46,6 +47,11 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jquery-cookie-rails'
 gem 'jquery-turbolinks'
+gem 'modernizr-rails'
+
+####### frameworks
+# gem 'foundation-rails' # uncomment and $ rails generate layout:install foundation5 
+# gem 'bootstrap-sass'   # uncomment and $ rails generate layout:install bootstrap3
 
 ### css
 gem 'sass-rails', github: 'rails/sass-rails'
@@ -67,7 +73,8 @@ gem 'sprockets', '2.11.0' # https://github.com/rails/sass-rails/issues/191
 gem 'high_voltage' # static pages at app/pages
 
 group :doc do
-  gem 'sdoc', require: false # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'sdoc', require: nil # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'yard', require: nil
 end
 
 # platform-specific
@@ -82,7 +89,7 @@ gem 'sidekiq-rate-limiter'
 gem 'redis'
 gem 'redis-namespace'
 gem 'redis-rails'
-# gem 'connection_pool' # arbitrary resource pools
+# gem 'connection_pool' # arbitrary resource pools, be careful with processes
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development

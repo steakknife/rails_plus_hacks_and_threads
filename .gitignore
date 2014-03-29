@@ -19,3 +19,10 @@
 
 # for figaro
 /config/application.yml
+
+# for metric_fu + simplecov
+/coverage
+
+# for yard/rdoc
+/doc
+/.yardoc
