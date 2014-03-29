@@ -11,9 +11,9 @@ gem 'puma'
 # gem 'pasenger'
 # gem 'unicorn'
 
-gem 'actionpack-action_caching'
-gem 'actionpack-page_caching'
-gem 'rack-cache'
+#gem 'actionpack-action_caching'
+#gem 'actionpack-page_caching'
+#gem 'rack-cache'
 
 # https / tls
 #gem 'rack-ssl', require: 'rack/ssl'
@@ -77,7 +77,7 @@ end
 
 gem 'figaro', github: 'laserlemon/figaro' # set env vars in config/application.yml
 gem 'clockwork', require: nil # DSL for cron-like jobs
-gem 'sidekiq' # background jobs, requires redis
+gem 'sidekiq', '< 3' # background jobs, requires redis
 gem 'sidekiq-rate-limiter'
 gem 'redis'
 gem 'redis-namespace'
@@ -95,10 +95,10 @@ gem 'pry-debugger' # https://github.com/nixme/pry-debugger
 gem 'debugger'  # https://github.com/cldwalker/debugger
 
 group :development do
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'quiet_assets', '~> 1.0.2'
-  gem 'rails_layout'
+  gem 'better_errors' # https://github.com/charliesome/better_errors
+  gem 'binding_of_caller' # https://github.com/quix/binding_of_caller
+  gem 'quiet_assets', '~> 1.0.2' # https://github.com/evrone/quiet_assets
+  gem 'rails_layout' # https://github.com/RailsApps/rails_layout
   gem 'database_cleaner', require: nil
   gem 'bullet' # n+1 queries
   gem 'spring', require: nil

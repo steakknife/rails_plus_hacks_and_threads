@@ -1,12 +1,12 @@
-require './lib/config/processors'
+require './lib/configuration/processors'
 max_threads = Integer(ENV['PUMA_MAX_THREADS'] || '16')
 threads Integer(ENV['PUMA_MIN_THREADS'] || '0'), max_threads
-workers Integer(ENV['PUMA_WORKERS'] || Processors.count)
+workers Integer(ENV['PUMA_WORKERS'] || Configuration::Processors.count)
 
-require './lib/config/active_record'
+require './lib/configuration/active_record'
 on_worker_boot do
   ActiveSupport.on_load(:active_record) do
-    Platform::Database.reconnect(max_threads)
+    Configuration::ActiveRecord.reconnect(max_threads)
   end
 end
 

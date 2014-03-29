@@ -1,6 +1,6 @@
-module Platform
-  module Database
-    def connect(pool_size = nil, reap_time = nil)
+module Configuration
+  module ActiveRecord
+    def self.connect(pool_size = nil, reap_time = nil)
       return unless defined? ActiveRecord::Base
       config = Rails.application.config.database_configuration[Rails.env]
       config['dead_connection_timeout'] = ENV['AR_DB_DEAD_CONN_TIMEOUT'] || 2 # seconds
@@ -9,16 +9,14 @@ module Platform
       ActiveRecord::Base.establish_connection(config)
     end
 
-    def disconnect
+    def self.disconnect
       return unless defined? ActiveRecord::Base
       ActiveRecord::Base.connection_pool.disconnect!
     end
 
-    def reconnect(pool_size = nil, reap_time = nil)
+    def self.reconnect(pool_size = nil, reap_time = nil)
       disconnect
       connect(pool_size, reap_time)
     end
-
-    module_function :disconnect, :connect, :reconnect
   end
 end

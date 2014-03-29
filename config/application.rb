@@ -15,27 +15,23 @@ end
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+require './lib/configuration/redis' if defined? ::Redis
+
 module MyApp
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-    def redis_url
-      ENV['REDISTOGO_URL'] ||
-      ENV['REDISCLOUD_URL'] ||
-      ENV['REDIS_URL'] ||
-      'redis://localhost:6379/'
-    end
 
     if defined? ::Redis::Store
-      config.cache_store = :redis_store, "#{redis_url}1/cache_store", { expires_in: ::Rails.env.production? ? 90.minutes : 15.seconds }
+      config.cache_store = :redis_store, "#{::Configuration::Redis.url}1/cache_store", { expires_in: ::Rails.env.production? ? 90.minutes : 15.seconds }
     end
 
     if defined? ::Rack::Cache::EntityStore::RedisBase
       config.action_dispatch.rack_cache = {
-        metastore: "#{redis_url}2/metastore",
-        entitystore: "#{redis_url}3/entitystore",
+        metastore: "#{::Configuration::Redis.url}2/metastore",
+        entitystore: "#{::Configuration::Redis.url}3/entitystore",
       }
     elsif defined? ::Rack::Cache
       config.action_dispatch.rack_cache = true

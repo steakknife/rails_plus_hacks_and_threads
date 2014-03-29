@@ -1,4 +1,5 @@
 if defined? Sidekiq
+  require './lib/configuration/redis'
   ### sidekiq-rate-limiter
   ##
   ## no middleware, it replaces the fetch class
@@ -12,22 +13,17 @@ if defined? Sidekiq
   rescue LoadError
   end
   ### sidekiq-rate-limiter
-  #
-  # redis_conn = proc { Redis.new } # do anything you want here
+ 
+  sidekiq_namespace = ENV['SIDEKIQ_JOB_QUEUE_REDIS_NAMESPACE'] || 'sidekiq_myapp'
 
-  #Sidekiq.configure_client do |config|
-  #  config.redis = { url: 'redis://redis.example.com:7372/12', namespace: 'mynamespace' }
-  #  config.redis = ConnectionPool.new(size: 5, &redis_conn)
-  #end
-  Sidekiq.configure_server do |config|
-    Platform::Database.reconnect(Sidekiq.options[:concurrency])
+  Sidekiq.configure_client do |config|
+    config.redis = { url: ::Configuration::Redis.url, namespace: sidekiq_namespace }
   end
-
-  #Sidekiq.configure_server do |config|
-  #  config.redis = { url: 'redis://redis.example.com:7372/12', namespace: 'mynamespace' }
-  #  config.redis = ConnectionPool.new(size: 25, &redis_conn)
+  Sidekiq.configure_server do |config|
+    Configuration::ActiveRecord.reconnect(Sidekiq.options[:concurrency])
+    config.redis = { url: ::Configuration::Redis.url, namespace: sidekiq_namespace }
   #  config.server_middleware do |chain|
   #    chain.add Sidekiq::Throttler
   #  end
-  #end
+  end
 end # if defined? Sidekiq

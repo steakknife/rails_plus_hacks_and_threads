@@ -58,6 +58,7 @@ Can be set externally (such as heroku) or locally in config/application.yml
 - REDIS_URL # if redis is used
 - RAILS_TIMEZONE # in rails format
 - RAILS_STATIC_CACHE_CONTROL
+- SIDEKIQ_JOB_QUEUE_REDIS_NAMESPACE # namespace used by Sidekiq for this app (default: sidekiq_myapp)
 
 ## Author
 
