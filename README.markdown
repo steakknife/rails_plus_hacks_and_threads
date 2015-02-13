@@ -36,10 +36,11 @@ Example app that runs all kinds of shit in threads.
     - [simplecov](https://github.com/colszowka/simplecov/)
     - [rails_best_practices](https://github.com/railsbp/rails_best_practices)
 
-## Also helpful to install
+## Also helpfully installed (but not `require`d)
 
 - [brakeman](http://brakemanscanner.org/) - rails security scanner
 - [bundler-audit](https://github.com/rubysec/bundler-audit) - bundler gem dependencies scanner
+- [rubocop](https://github.com/bbatsov/rubocop) - Ruby/Rails syntax style checker
 
 ## How it works
 
