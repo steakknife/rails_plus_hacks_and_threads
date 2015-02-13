@@ -11,14 +11,14 @@ IGNORE_SIGNALS = %w[HUP]
 ERROR_SIGNALS = %w[INT TERM QUIT]
 ## config
 
-IGNORE_SIGNALS.map { |ign_signal| trap (ign_signal) {} }
-ERROR_SIGNALS.map { |err_signal|
-  trap (err_signal) {
+IGNORE_SIGNALS.map { |ign| trap (ign) {} }
+ERROR_SIGNALS.map do |err|
+  trap err do
     $stderr.puts "\n! shutting down foreman_god"
     God.stop_all
     exit 1
-  }
-}
+  end
+end
 
 ForemanGod.watch File.dirname(__FILE__) do |w|
   w.name = 'foreman'
