@@ -4,7 +4,7 @@ Example app that runs all kinds of shit in threads.
 
 ## What's preconfigured
 
-- Rails 4.1rc (4.0.x should work too)
+- Rails 4
 - [HAML](https://github.com/indirect/haml-rails)
 - [SASS](https://github.com/rails/sass-rails)
 - [jQuery](https://github.com/rails/jquery-rails) with [jQuery.turbolinks](https://github.com/kossnocorp/jquery.turbolinks)
@@ -39,6 +39,7 @@ Example app that runs all kinds of shit in threads.
 ## Also helpful to install
 
 - [brakeman](http://brakemanscanner.org/) - rails security scanner
+- [bundler-audit](https://github.com/rubysec/bundler-audit) - bundler gem dependencies scanner
 
 ## How it works
 
