@@ -105,6 +105,9 @@ group :development do
   gem 'bullet' # n+1 queries
   gem 'spring', require: nil
   gem 'spring-commands-rspec', require: nil
+  gem 'brakeman', require: nil
+  gem 'bundler-audit', require: nil
+  gem 'rubocop', require: nil
 end
 
 group :development, :production do
