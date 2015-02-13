@@ -1,23 +1,21 @@
 source 'https://rubygems.org'
 source 'https://rails-assets.org' # visit https://rails-assets.org/
 
-ruby '2.1.1'
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', github: 'rails/rails', branch: '4-1-stable'
-#gem 'rails', '4.0.4'
+ruby '2.2.0'
+gem 'rails', '4.2.0'
 
 # rack server
 gem 'puma'
 # gem 'pasenger'
 # gem 'unicorn'
 
-#gem 'actionpack-action_caching'
-#gem 'actionpack-page_caching'
-#gem 'rack-cache'
+# gem 'actionpack-action_caching'
+# gem 'actionpack-page_caching'
+# gem 'rack-cache'
+# gem 'redis-rack-cache'
 
 # https / tls
-#gem 'rack-ssl', require: 'rack/ssl'
+# gem 'rack-ssl', require: 'rack/ssl'
 
 
 # model/orm plugins
@@ -38,9 +36,7 @@ gem 'jbuilder', '~> 1.2'
 
 ### js
 gem 'turbolinks'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'therubyracer', platforms: :ruby unless system 'which node >/dev/null 2>&1'
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier', '>= 1.3.0' # assumes you have an ExecJS runtime installed
 gem 'coffee-rails', '~> 4.0.0'
 ####### js libs
 gem 'jquery-rails'
@@ -50,8 +46,8 @@ gem 'jquery-turbolinks'
 gem 'modernizr-rails'
 
 ####### frameworks
-# gem 'foundation-rails' # uncomment and $ rails generate layout:install foundation5 
 # gem 'bootstrap-sass'   # uncomment and $ rails generate layout:install bootstrap3
+# gem 'foundation-rails' # uncomment and $ rails generate layout:install foundation5 
 
 ### css
 gem 'sass-rails', github: 'rails/sass-rails'
@@ -69,7 +65,6 @@ gem 'haml-rails'
 # gem 'svg-flags-rails' # or famfamfam_flags_rails
 
 ### misc
-gem 'sprockets', '2.11.0' # https://github.com/rails/sass-rails/issues/191
 gem 'high_voltage' # static pages at app/pages
 
 group :doc do
@@ -78,7 +73,7 @@ group :doc do
 end
 
 # platform-specific
-if ENV.keys.grep(/HEROKU/)
+group :production do
   gem 'rails_12factor'
 end
 
@@ -115,7 +110,7 @@ end
 group :development, :production do
   # pry extensions
   gem 'pry-rescue' # https://github.com/ConradIrwin/pry-rescue
-  gem 'pry-stack_explorer' # https://github.com/pry/pry-stack_explorer
+  gem 'pry-stack', github: 'steakknife/pry-stack' # https://github.com/steakknife/pry-stack
   # utils
   gem 'taps', require: nil # database backup / restore
   gem 'god', require: nil
@@ -134,5 +129,4 @@ group :development, :test do
   # utils
   gem 'simplecov', require: nil
   gem 'metric_fu', require: nil
-  gem 'absolute_time' if RUBY_PLATFORM =~ /(linux|darwin|freebsd)/i # precise timing
 end
