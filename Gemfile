@@ -123,7 +123,7 @@ group :development, :production do
   gem 'pry-rescue' # https://github.com/ConradIrwin/pry-rescue
   gem 'pry-stack', github: 'steakknife/pry-stack' # https://github.com/steakknife/pry-stack
   # utils
-  gem 'taps', require: nil # database backup / restore
+  gem 'taps-taps', require: nil # database backup / restore
   gem 'god', require: nil
   gem 'foreman_god', require: nil
 end

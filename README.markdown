@@ -41,6 +41,7 @@ Example app that runs all kinds of shit in threads.
 - [brakeman](http://brakemanscanner.org/) - rails security scanner
 - [bundler-audit](https://github.com/rubysec/bundler-audit) - bundler gem dependencies scanner
 - [rubocop](https://github.com/bbatsov/rubocop) - Ruby/Rails syntax style checker
+- [taps-taps](https://shellycloud.com/blog/2013/10/easy-database-migration-using-taps) database import/exporter
 
 ## How it works
 
