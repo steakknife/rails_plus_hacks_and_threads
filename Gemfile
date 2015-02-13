@@ -53,7 +53,7 @@ gem 'modernizr-rails'
 # gem 'foundation-rails' # uncomment and $ rails generate layout:install foundation5 
 
 ### css
-gem 'sass-rails', github: 'rails/sass-rails'
+gem 'sass-rails'
 
 ### html
 gem 'haml-rails'
@@ -80,7 +80,7 @@ group :production do
   gem 'rails_12factor'
 end
 
-gem 'figaro', github: 'laserlemon/figaro' # set env vars in config/application.yml
+gem 'figaro' # set env vars in config/application.yml
 gem 'clockwork', require: nil # DSL for cron-like jobs
 gem 'sidekiq', '< 3' # background jobs, requires redis
 gem 'sidekiq-rate-limiter'
