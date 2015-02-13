@@ -67,8 +67,8 @@ This is more efficient to first page load as only the minimal assets are loaded.
 
 ## Easy setup
 
-    git clone https://github.com/steakknife/rails41rc_plus_hacks_and_threads
-    cd rails41rc_plus_hacks_and_threads
+    git clone https://github.com/steakknife/rails_plus_hacks_and_threads
+    cd rails_plus_hacks_and_threads
     bundle exec rake db:setup
     foreman start
 
@@ -130,10 +130,10 @@ MIT
 
 ### Verify integrity of signed commits
 
-    git clone https://github.com/steakknife/rails41rc_plus_hacks_and_threads
-    cd rails41rc_plus_hacks_and_threads
+    git clone https://github.com/steakknife/rails_plus_hacks_and_threads
+    cd rails_plus_hacks_and_threads
     gpg --recv-keys 0x14CAC196A122026C
-    git log --show-signature
+    git verify-commit HEAD
 
 
 ### How this was created
