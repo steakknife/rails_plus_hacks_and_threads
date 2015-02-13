@@ -25,10 +25,10 @@ gem 'seedbed' # modular seeds.rb
 
 # controller plugins
 gem 'secure_headers' # https://github.com/twitter/secureheaders
-gem 'inherited_resources'
+gem 'responders'
 
 # view plugins
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder', '~> 2.0'
 ### forms
 # gem 'simple_form'
 ### validations
@@ -36,7 +36,10 @@ gem 'jbuilder', '~> 1.2'
 
 ### js
 gem 'turbolinks'
+
 gem 'uglifier', '>= 1.3.0' # assumes you have an ExecJS runtime installed
+# or gem 'closure-compiler'
+
 gem 'coffee-rails', '~> 4.0.0'
 ####### js libs
 gem 'jquery-rails'
@@ -89,25 +92,30 @@ gem 'redis-rails'
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
-# Use debugger
+# pry: rails console replacement
 gem 'pry-rails' # https://github.com/rweng/pry-rails
 gem 'pry'       # https://github.com/pry/pry
-gem 'pry-awesome_print' # https://github.com/steakknife/pry-awesome_print
-gem 'pry-debugger' # https://github.com/nixme/pry-debugger
-gem 'debugger'  # https://github.com/cldwalker/debugger
+# gem 'pry-awesome_print' # https://github.com/steakknife/pry-awesome_print
+gem 'jazz_fingers'
+  gem 'hirb-unicode'
+gem 'pry-byebug' # https://github.com/nixme/pry-debugger
+  gem 'byebug'
 
 group :development do
+  gem 'web-console', '~> 2.0'
   gem 'better_errors' # https://github.com/charliesome/better_errors
   gem 'binding_of_caller' # https://github.com/quix/binding_of_caller
   gem 'quiet_assets', '~> 1.0.2' # https://github.com/evrone/quiet_assets
   gem 'rails_layout' # https://github.com/RailsApps/rails_layout
   gem 'database_cleaner', require: nil
   gem 'bullet' # n+1 queries
-  gem 'spring', require: nil
+  gem 'html2haml', require: nil # convert erb/html to haml
+  gem 'spring', require: nil # rails/rake preloader restarter
   gem 'spring-commands-rspec', require: nil
   gem 'brakeman', require: nil
   gem 'bundler-audit', require: nil
   gem 'rubocop', require: nil
+  gem 'respec', require: nil # rerun failed specs automatically
 end
 
 group :development, :production do
