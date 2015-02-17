@@ -6,7 +6,6 @@ require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 require 'database_cleaner'
-require 'rspec/rails'
 require 'rspec/mocks'
 require 'rspec/expectations'
 require 'rspec/matchers'
