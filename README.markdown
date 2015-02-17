@@ -75,8 +75,9 @@ Example app that runs all kinds of shit in threads.
 - Testing
   - [rspec-rails](https://github.com/rspec/rspec-rails) 
     - [RSpec](http://rspec.info/) Please read [betterspecs](http://betterspecs.org/)
+    - [rspec-mocks](https://github.com/rspec/rspec-mocks)
+    - [rspec-expectations](https://github.com/rspec/rspec-expectations)
   - [FactoryGirl](https://github.com/thoughtbot/factory_girl)
-  - [RR](https://github.com/btakita/rr)
   - [Timecop](https://github.com/travisjeffery/timecop)
   - [should_not](https://github.com/should-not/should_not)
   - [database_cleaner](https://github.com/DatabaseCleaner/database_cleaner)
