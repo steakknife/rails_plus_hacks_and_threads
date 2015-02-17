@@ -20,7 +20,7 @@ MyApp::Application.configure do
   config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
-  config.serve_static_assets = ENV.include?('RAILS_SERVE_STATIC_ASSETS') ? ENV.y?('RAILS_SERVE_STATIC_ASSETS') : Configuration::Heroku.present?
+  config.serve_static_files = ENV.include?('RAILS_SERVE_STATIC_ASSETS') ? ENV.y?('RAILS_SERVE_STATIC_ASSETS') : Configuration::Heroku.present?
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier

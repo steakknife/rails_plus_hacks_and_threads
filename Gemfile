@@ -130,11 +130,11 @@ end
 
 group :development, :test do
   # testing
-  gem 'rspec-expectations', require: nil
   gem 'rspec-rails', '>= 2.0.1', require: nil
-  gem 'factory_girl_rails', require: nil
+    gem 'rspec-expectations', require: nil
+    gem 'rspec-mocks', require: nil
+  gem 'factory_girl_rails'
   gem 'timecop', require: nil
-  gem 'rr', require: nil
   gem 'should_not', require: nil
   gem 'recipient_interceptor'
   # utils
