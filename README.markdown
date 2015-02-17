@@ -146,9 +146,9 @@ Can be set externally (such as heroku) or locally in config/application.yml
 
 ### Standard
 
-- RAILS_ENV # defaults to development
-- PORT # defaults to 3000 without foreman, 5000 with
-- DATABASE_URL
+- `RAILS_ENV` # defaults to development
+- `PORT` # defaults to 3000 without foreman/foreman_god, 5000 with
+- `DATABASE_URL`
 
 ### Provided by this template
 
@@ -167,7 +167,7 @@ Can be set externally (such as heroku) or locally in config/application.yml
 - Puma
   - `PUMA_MIN_THREADS` # default: 0
   - `PUMA_MAX_THREADS` # default: 16
-  - `PUMA_WORKERS # default: no. of processors
+  - `PUMA_WORKERS` # default: no. of processors
   - `PUMA_CONTROL_ENDPOINT`
   - `PUMA_CONTROL_ENDPOINT_AUTH_TOKEN` # auth_token
   - `PUMA_CONTROL_ENDPOINT_NO_AUTH_TOKEN`
