@@ -5,24 +5,81 @@ Example app that runs all kinds of shit in threads.
 ## What's preconfigured
 
 - Rails 4
-- [HAML](https://github.com/indirect/haml-rails)
-- [SASS](https://github.com/rails/sass-rails)
-- [jQuery](https://github.com/rails/jquery-rails) with [jQuery.turbolinks](https://github.com/kossnocorp/jquery.turbolinks)
-- [jQuery UI](https://github.com/joliss/jquery-ui-rails)
-- [Modernizr](https://github.com/russfrisch/modernizr-rails)
 - [pg](https://bitbucket.org/ged/ruby-pg/wiki/Home)
-- [jQuery Cookies](https://github.com/RyanScottLewis/jquery-cookie-rails)
-- [CoffeeScript](https://github.com/rails/coffee-rails)
-- [rails-assets.org](https://rails-assets.org) for other assets
-- [Sidekiq](http://sidekiq.org/)
-- [Clockwork](https://github.com/tomykaira/clockwork)
+- [Sidekiq](http://sidekiq.org/) background jobs
+  - [sidekiq-dynamic-throttle](https://github.com/bobbrez/sidekiq-dynamic-throttle)
+- [Redis](http://redis.io/)
+  - [redis-rails](https://github.com/redis-store/redis-rails)
+    - [redis-store](https://github.com/redis-store/redis-store)
+    - [redis-activesupport](https://github.com/redis-store/redis-activesupport)
+    - [redis-actionpack](https://github.com/redis-store/redis-actionpack)
+  - [redis-namespace](https://github.com/resque/redis-namespace)
+- [Clockwork](https://github.com/tomykaira/clockwork) crons
+- Rails App Templates
+  - [rails_layout](https://github.com/RailsApps/rails_layout)
+- Other
+  - [Rails Assets](https://rails-assets.org/) include bower assets in rails apps
+  - [Other rubygems](https://www.ruby-toolbox.com/) from the ruby toolbox
+- Models
+  - [PaperTrail](https://github.com/airblade/paper_trail)
+- Views
+  - [rails-assets.org](https://rails-assets.org) for other assets
+  - [haml-rails](https://github.com/indirect/haml-rails)
+    - [Haml](http://haml.info/)
+    - [html2haml](https://github.com/haml/html2haml)
+  - [sass-rails](https://github.com/rails/sass-rails)
+    - [Sass](http://sass-lang.com/)
+  - [coffee-rails](https://github.com/rails/coffee-rails)
+    - [CoffeeScript](http://coffeescript.org/)
+  - [jquery-rails](https://github.com/rails/jquery-rails) with [jQuery.turbolinks](https://github.com/kossnocorp/jquery.turbolinks)
+    - [jQuery](https://jquery.com/)
+    - [Turbolinks](https://github.com/rails/turbolinks/)
+    - [jquery-cookie-rails](https://github.com/RyanScottLewis/jquery-cookie-rails)
+      - [jQuery Cookies](https://plugins.jquery.com/cookie/)
+  - [jquery-ui-rails](https://github.com/joliss/jquery-ui-rails)
+    - [jQuery UI](https://jqueryui.com/)
+  - [jBuilder](https://github.com/rails/jbuilder)
+- Controllers
+  - [Modernizr](https://github.com/russfrisch/modernizr-rails)
+  - [SecureHeaders](https://github.com/twitter/secureheaders)
+  - [Responders](https://github.com/plataformatec/responders)
+  - [SSL Requirements](https://github.com/bartt/ssl_requirement)
+- Debugging
+  - [better_errors](https://github.com/charliesome/better_errors)
+  - [binding_of_caller](https://github.com/quix/binding_of_caller)
+  - [bullet](https://github.com/flyerhzm/bullet)
+  - [hirb-unicode](https://github.com/miaout17/hirb-unicode) for hirb
+  - [quiet_assets](https://github.com/evrone/quiet_assets)
+  - [recipient_interceptor](https://github.com/croaky/recipient_interceptor)
+  - [respec](https://github.com/oggy/respec)
+  - [letter_opener](https://github.com/ryanb/letter_opener)
+  - [pry](https://github.com/pry/pry)
+    - [pry-rescue](https://github.com/ConradIrwin/pry-rescue)
+    - [pry-stackknife](https://github.com/steakknife/pry-stackknife) pry-stack_explorer replacment, since pry-stack is unusable
+    - [jazz_fingers](https://github.com/plribeiro3000/jazz_fingers)
+      - [awesome_print](https://github.com/michaeldv/awesome_print)
+      - [hirb](https://github.com/cldwalker/hirb)
+      - [pry-coolline](https://github.com/pry/pry-coolline)
+      - [pry-doc](https://github.com/pry/pry-doc)
+      - [pry-git](https://github.com/pry/pry-git)
+      - [pry-rails](https://github.com/rweng/pry-rails)
+      - [pry-remote](https://github.com/Mon-Ouie/pry-remote)
+    - [pry-byebug](https://github.com/deivid-rodriguez/pry-byebug)
+      - [byebug](https://github.com/deivid-rodriguez/byebug)
+  - [spring](https://github.com/rails/spring)
+    - [spring-commands-rspec](https://github.com/jonleighton/spring-commands-rspec)
+  - [web-console](https://github.com/rails/web-console)
+- Documentation
+  - [sdoc]()
+  - [Yard]()
 - Testing
-  - [RSpec](http://rspec.info/) Please read [betterspecs](http://betterspecs.org/)
+  - [rspec-rails](https://github.com/rspec/rspec-rails) 
+    - [RSpec](http://rspec.info/) Please read [betterspecs](http://betterspecs.org/)
   - [FactoryGirl](https://github.com/thoughtbot/factory_girl)
   - [RR](https://github.com/btakita/rr)
   - [Timecop](https://github.com/travisjeffery/timecop)
   - [should_not](https://github.com/should-not/should_not)
-  - [recipient_interceptor](https://github.com/croaky/recipient_interceptor)
+  - [database_cleaner](https://github.com/DatabaseCleaner/database_cleaner)
 - Code Coverage
   - [metric_fu](https://github.com/metricfu/metric_fu/)
     - [cane](http://github.com/square/cane)
@@ -38,6 +95,9 @@ Example app that runs all kinds of shit in threads.
 
 ## Also helpfully installed (but not `require`d)
 
+- [foreman_god](https://github.com/embarkmobile/foreman_god)
+  - [foreman](https://github.com/ddollar/foreman)
+  - [god](http://godrb.com/)
 - [brakeman](http://brakemanscanner.org/) - rails security scanner
 - [bundler-audit](https://github.com/rubysec/bundler-audit) - bundler gem dependencies scanner
 - [rubocop](https://github.com/bbatsov/rubocop) - Ruby/Rails syntax style checker
@@ -74,8 +134,9 @@ This is more efficient to first page load as only the minimal assets are loaded.
 
 ## Requirements
 
-- ruby 2.1.1
+- ruby 2.2.0
 - postgres
+- redis
 - rake
 - bundler
 
@@ -91,28 +152,35 @@ Can be set externally (such as heroku) or locally in config/application.yml
 
 ### Provided by this template
 
-- START_THREADS # set to n to disable, or y to force enable 
-- HACKS # set to n to disable (will probably break the app)
-- EMAIL_INTERCEPTOR_RECIPIENT # email to redrect all outbound emails to
-- PUMA_MIN_THREADS
-- PUMA_MAX_THREADS
-- PUMA_WORKERS # no. of processes
-- PUMA_CONTROL_ENDPOINT
-- PUMA_CONTROL_ENDPOINT_AUTH_TOKEN
-- PUMA_CONTROL_ENDPOINT_NO_AUTH_TOKEN
-- AR_DB_DEAD_CONN_TIMEOUT # dead_connection_timeout
-- AR_DB_REAP_FREQ # reaping_frequency
-- AR_DB_POOL # pool
-- SIMPLECOV # set to enable simplecov during rspec
-- RAILS_ASSET_HOST
-- RAILS_FORCE_SSL
-- RAILS_ASSETS_VERSION
-- RAILS_DEFAULT_LOCALE
-- RAILS_LOG_LEVEL
-- REDIS_URL # if redis is used
-- RAILS_TIMEZONE # in rails format
-- RAILS_STATIC_CACHE_CONTROL
-- SIDEKIQ_JOB_QUEUE_REDIS_NAMESPACE # namespace used by Sidekiq for this app (default: sidekiq_myapp)
+- General configuration
+  - `RAILS_ASSET_HOST`
+  - `RAILS_FORCE_SSL` # only
+  - `RAILS_ASSETS_VERSION` # default: 1.0
+  - `RAILS_DEFAULT_LOCALE` # default: en (English)
+  - `RAILS_LOG_LEVEL` # default: info
+  - `RAILS_TIMEZONE` # in rails format, default: UTC
+  - `RAILS_STATIC_CACHE_CONTROL`
+  - `RAILS_SERVE_STATIC_ASSETS` # defaults: heroku: true, not heroku: false
+  - `RAILS_X_SENDFILE_HEADER`
+  - `REDIS_URL` # if redis is used
+  - `SIDEKIQ_JOB_QUEUE_REDIS_NAMESPACE` # namespace used by Sidekiq for this app (default: sidekiq_myapp)
+- Puma
+  - `PUMA_MIN_THREADS` # default: 0
+  - `PUMA_MAX_THREADS` # default: 16
+  - `PUMA_WORKERS # default: no. of processors
+  - `PUMA_CONTROL_ENDPOINT`
+  - `PUMA_CONTROL_ENDPOINT_AUTH_TOKEN` # auth_token
+  - `PUMA_CONTROL_ENDPOINT_NO_AUTH_TOKEN`
+  - `PUMA_LOADED` # set by config/puma.rb
+- ActiveRecord
+  - `AR_DB_DEAD_CONN_TIMEOUT` # dead_connection_timeout
+  - `AR_DB_REAP_FREQ` # reaping_frequency
+  - `AR_DB_POOL` # pool
+- Testing
+  - `SIMPLECOV` # set to enable simplecov during rspec
+  - `START_THREADS` # set to n to disable, or y to force enable (default: foreman/foreman god: y, rails s: n)
+  - `HACKS` # set to n to disable (will probably break the app)
+  - `EMAIL_INTERCEPTOR_RECIPIENT` # email to redrect all outbound emails to
 
 ## Author
 

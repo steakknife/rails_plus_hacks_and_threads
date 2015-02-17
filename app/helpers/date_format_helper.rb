@@ -2,15 +2,14 @@ require 'action_view'
 
 module DateFormatHelper
   extend ActionView::Helpers::DateHelper
-  extend self
 
   RELATIVE_TIME = true
 
-  def ago(time)
+  def self.ago(time)
     humanize(time - Time.now)
   end
 
-  def humanize(secs)
+  def self.humanize(secs)
     ago = (secs < 0)
     secs = -secs if ago
     result = []
@@ -25,7 +24,7 @@ module DateFormatHelper
     result.join(' ')
   end
 
-  def roughly_ago(time)
+  def self.roughly_ago(time)
     time_ago_in_words(time) + ' ago' if time
   end
 end

@@ -2,8 +2,9 @@
 %html
   %head
     %meta{charset: 'utf-8'}
-    %title= (content_for?(:title) ? yield(:title) : I18n.t('site_title')) || 'MyApp'
-    %meta{name: 'description', content: "#{ content_for?(:description) ? yield(:description) : I18n.t('site_description')}"}
+    %title= title || 'MyApp'
+    %meta{name: 'keywords', content: meta_keywords} 
+    %meta{name: 'description', content: meta_description}
     %meta{name: 'viewport', content: 'width=device-width, initial-scale=1.0'}
     %link{rel: 'author', href: 'humans.txt'}
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true

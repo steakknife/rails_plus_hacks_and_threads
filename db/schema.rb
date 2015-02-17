@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140309055336) do
+ActiveRecord::Schema.define(version: 20150217100907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
 
-  create_table "singleton_processes", force: true do |t|
+  create_table "singleton_processes", force: :cascade do |t|
     t.string   "process_type", null: false
     t.string   "hostname",     null: false
     t.integer  "pid",          null: false

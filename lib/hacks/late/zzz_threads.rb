@@ -14,19 +14,19 @@ if ENV['START_THREADS'] == 'y' || ((ENV['RACK_ENV'] || ENV['RAILS_ENV']) && ENV[
   end
   $threads = {}
   STDERR.puts 'Starting threads'
-  $thread_procs.each { |thread_file, thread_proc|
+  $thread_procs.each do |thread_file, thread_proc|
     STDERR.puts "starting thread #{thread_file}"
     $threads[thread_file] = Thread.new(&$thread_procs[thread_file])
-  }
+  end
   Thread.new do
     STDERR.puts 'Monitoring all threads'
     loop do
-      $threads.each { |thread_file, thread|
+      $threads.each do |thread_file, thread|
         unless thread.alive?
           STDERR.puts "restarting thread #{thread_file}"
           $threads[thread_file] = Thread.new(&$thread_procs[thread_file])
         end
-      }
+      end
       sleep 1 # prevent threads from respawning too quickly, and us from using 100% of CPU
     end
   end

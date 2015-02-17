@@ -1,10 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 # Pick the frameworks you want:
-require "active_record/railtie"
-require "action_controller/railtie"
-require "action_mailer/railtie"
-require "sprockets/railtie"
+require 'rails/all'
 begin
 require "factory_girl_rails"
 rescue LoadError
@@ -57,5 +54,8 @@ module MyApp
     end
 
     config.log_level = (ENV['RAILS_LOG_LEVEL'] || (::Rails.env.production? ? :info : :info)).to_sym
+
+    # ActiveJob + Sidekiq
+    config.active_job.queue_adapter = :sidekiq
   end
 end
