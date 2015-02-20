@@ -130,7 +130,7 @@ end
 
 group :development, :test do
   # testing
-  gem 'rspec-rails', '>= 2.0.1', require: nil
+  gem 'rspec-rails', '>= 2.0.1'
     gem 'rspec-expectations', require: nil
     gem 'rspec-mocks', require: nil
   gem 'factory_girl_rails'
