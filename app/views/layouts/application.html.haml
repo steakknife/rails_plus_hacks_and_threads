@@ -7,9 +7,9 @@
     %meta{name: 'description', content: meta_description}
     %meta{name: 'viewport', content: 'width=device-width, initial-scale=1.0'}
     %link{rel: 'author', href: 'humans.txt'}
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag       'application', media: 'all', 'data-turbolinks-track' => true
     = stylesheet_link_tag params[:controller], media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag       'application', 'data-turbolinks-track' => true
     = javascript_include_tag params[:controller], 'data-turbolinks-track' => true
     = javascript_tag "document.write(\'<script src=\"http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1\"></' + 'script>')" if ENV['LIVERELOAD']
     = csrf_meta_tags

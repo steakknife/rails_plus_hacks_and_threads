@@ -5,11 +5,11 @@ module DateFormatHelper
 
   RELATIVE_TIME = true
 
-  def self.ago(time)
+  def ago(time)
     humanize(time - Time.now)
   end
 
-  def self.humanize(secs)
+  def humanize(secs)
     ago = (secs < 0)
     secs = -secs if ago
     result = []
@@ -24,7 +24,7 @@ module DateFormatHelper
     result.join(' ')
   end
 
-  def self.roughly_ago(time)
+  def roughly_ago(time)
     time_ago_in_words(time) + ' ago' if time
   end
 end

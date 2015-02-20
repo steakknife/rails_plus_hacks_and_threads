@@ -108,30 +108,36 @@ Example app that runs all kinds of shit in threads.
 
 Everything in `lib/threads/*.rb` gets spawned in a `Thread.new` (and supervised!)
 
-Sidekiq, since it's popular, is also included.  Sidekiq workers live at `lib/workers/*.rb`
+Sidekiq, since it's popular, is also included.  Sidekiq workers live at `lib/workers/*.rb` (Updated to work with Rails 4.2+ ActiveJob)
 
 Clockwork, for timed jobs, is included as well `lib/clocks/*.rb`.  Further only one instance of clockwork is spun up, no matter how many rails app instances are launched (using SingletonProcess is a really bad ZooKeeper).
 
+`lib/hacks/early/**/*.rb` are loaded early by `config/boot.rb` unless env `HACKS=n`
 
-`lib/hacks/early/**/*.rb` are loaded early by config/boot.rb unless env `HACKS=n`
-
-`lib/hacks/late/**/.rb` are loaded later by config/environment.rb unless env `HACKS=n`
+`lib/hacks/late/**/.rb` are loaded later by `config/environment.rb` unless env `HACKS=n`
 
 
 ## What's different
 
-Per view stylesheets and javascripts are not included in every view.
+### UUID id's (primary keys)
 
-Instead, per-view assets are loaded after corresponding application.js and application.css
+Postgres UUID-typed model primary key `id`'s are enabled, but not default
 
-This is more efficient to first page load as only the minimal assets are loaded.
+**Notes**
+- UUID ids breaks default scope
+- Custom default scope based on `created_at` timestamp doesn't always work
+- UUID's allows for opaque/information hiding
+- Use the `create_table, :..., id: uuid do` way to specify UUID pk's
+- Foreign keys declared in migrations probably wont work
+- May want to define a custom `to_param` in the model or use something like `friendly_id`
+
+~~Per view stylesheets and javascripts are not included in every view.  Instead, per-view assets are loaded after corresponding application.js and application.css.   This is more efficient to first page load as only the minimal assets are loaded.~~ This could cause configuration issues and noobie confusion, so it's dropped.
 
 ## Easy setup
 
-    git clone https://github.com/steakknife/rails_plus_hacks_and_threads
-    cd rails_plus_hacks_and_threads
-    bundle exec rake db:setup
-    foreman start
+    git clone https://github.com/steakknife/rails_plus_hacks_and_threads yournewproject
+    cd yournewproject
+    bin/setup && ./Procfile.god
 
 ## Requirements
 
@@ -150,6 +156,8 @@ Can be set externally (such as heroku) or locally in config/application.yml
 - `RAILS_ENV` # defaults to development
 - `PORT` # defaults to 3000 without foreman/foreman_god, 5000 with
 - `DATABASE_URL`
+- `RAILS_SERVE_STATIC_FILES` # defaults: heroku: true, not heroku: false
+- `SECRET_KEY_BASE` # must always be set to 30+ characters in production
 
 ### Provided by this template
 
@@ -161,7 +169,6 @@ Can be set externally (such as heroku) or locally in config/application.yml
   - `RAILS_LOG_LEVEL` # default: info
   - `RAILS_TIMEZONE` # in rails format, default: UTC
   - `RAILS_STATIC_CACHE_CONTROL`
-  - `RAILS_SERVE_STATIC_ASSETS` # defaults: heroku: true, not heroku: false
   - `RAILS_X_SENDFILE_HEADER`
   - `REDIS_URL` # if redis is used
   - `SIDEKIQ_JOB_QUEUE_REDIS_NAMESPACE` # namespace used by Sidekiq for this app (default: sidekiq_myapp)
